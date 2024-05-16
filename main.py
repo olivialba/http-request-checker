@@ -1,6 +1,6 @@
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
-from utils import *
+from src.utils import *
 
 
 dpg.create_context()
@@ -28,9 +28,6 @@ with dpg.window(tag="main_window"):
                     # HEADER
                     space(20)
                     dpg.add_text("Header:")
-                    with dpg.group(indent=15, horizontal=True):
-                        dpg.add_input_text(default_value='User-Agent', tag='header_name_one', width=100)
-                        dpg.add_input_text(hint='...', default_value=USER_AGENT, tag='header_info_one', width=-1)
                         # Add to Header
                     dpg.add_spacer(height=2, tag='add_header_space')
                     dpg.add_button(indent=15, label='+ Header', callback=add_input_row, user_data=HEADER)
@@ -38,9 +35,6 @@ with dpg.window(tag="main_window"):
                     # COOKIE
                     space(20)
                     dpg.add_text("Header > Cookies:")
-                    with dpg.group(indent=15, horizontal=True):
-                        dpg.add_input_text(default_value='cf_clearance', tag='cookie_name_one', width=100)
-                        dpg.add_input_text(hint='...', tag='cookie_info_one', width=-1)
                         # Add to Header > Cookie
                     dpg.add_spacer(height=2, tag='add_cookie_space')
                     dpg.add_button(indent=15, label='+ Cookie', callback=add_input_row, user_data=COOKIE)
@@ -48,6 +42,12 @@ with dpg.window(tag="main_window"):
                 space(20)
                 dpg.add_button(label='Send Request', tag='send_request_button',callback=send_request, width=-1, height=30)
                 space(10)
+                
+                # Add first row to Header and Cookies:
+                add_input_row(None, None, HEADER)
+                dpg.configure_item('header_name_1', default_value='User-Agent')
+                dpg.configure_item('header_info_1', default_value=USER_AGENT)
+                add_input_row(None, None, COOKIE)
             
             # RESPONSE
             with dpg.group(indent=10):
