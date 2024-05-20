@@ -4,7 +4,8 @@ from src.utils import *
 
 
 dpg.create_context()
-dpg.create_viewport(title='Request Tester', height=500, width=920)
+dpg.create_viewport(title='Request Checker', small_icon='src/img/small.ico', large_icon='src/img/large.ico', 
+                    height=500, width=920)
 
 
 # MAIN WINDOW
@@ -66,7 +67,7 @@ with dpg.window(tag="main_window"):
                 dpg.add_text("Type: ", indent=25, tag='response_content_type', wrap=300)
                 with dpg.group(horizontal=True):
                     with dpg.tree_node(label="Text: ", indent=5):
-                        dpg.add_text("", tag='response_text', wrap=350)
+                        dpg.add_text("", tag='response_text', wrap=450)
                 
                 
 #demo.show_demo()

@@ -12,7 +12,7 @@ cookies_items = [0]
 
 
 
-######### GUI #########
+#@###### GUI #######
 
 # Add new row for Headers or Cookies
 def add_input_row(sender, app_data, userdata):
@@ -47,8 +47,7 @@ def space(height: int):
     dpg.add_spacer(height=height)
 
 
-
-####### REQUEST #######
+#@###### REQUEST #######
 
 # Get Request info (headers and cookies)
 def get_request_info_from(items_list: list):

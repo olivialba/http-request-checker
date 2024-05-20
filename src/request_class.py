@@ -24,14 +24,12 @@ class RequestInfo():
         self.response_time = str(round(self.response.elapsed.total_seconds(), 3))
         self.content_type = self.response.headers['content-type']
     
-    
     def _get_request(self) -> dict:
         response = requests.get(url=self.url, 
                                 headers=self.get_header(), 
                                 cookies=self.get_cookies())
         return response
-        
-            
+         
     def _post_request(self) -> dict:
         response = requests.post(url=self.url, 
                                 headers=self.get_header(), 
